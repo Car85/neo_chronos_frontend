@@ -1,0 +1,48 @@
+.
+├── architech_tree.txt
+├── connectedscatter.csv
+├── dist
+│   ├── 404
+│   │   └── index.html
+│   ├── assets
+│   │   ├── chiller_OFF-DGxmXGvK.svg
+│   │   ├── index-Bx_KOrb5.css
+│   │   ├── index-D-larzsC.js
+│   │   ├── index-yPT9wrRc.js
+│   │   └── prerender-BQPvRdb0.js
+│   ├── index.html
+│   └── vite.svg
+├── id_rsa_key
+├── id_rsa_key.pub
+├── index.html
+├── package.json
+├── package-lock.json
+├── public
+│   └── vite.svg
+├── README.md
+├── src
+│   ├── assets
+│   │   ├── boiler_OFF.svg
+│   │   ├── boiler_ON.svg
+│   │   ├── chiller_OFF.svg
+│   │   ├── chiller_ON.svg
+│   │   ├── preact.svg
+│   │   ├── thermomether_boiler.png
+│   │   └── thermomether_chilling.png
+│   ├── components
+│   │   ├── Header.tsx
+│   │   └── style.css
+│   ├── index.tsx
+│   ├── pages
+│   │   ├── Home
+│   │   │   ├── index_summer.tsx
+│   │   │   ├── index_winter.tsx
+│   │   │   └── style.css
+│   │   └── stats
+│   │       ├── stats.tsx
+│   │       └── style.css
+│   └── style.css
+├── tsconfig.json
+└── vite.config.ts
+
+11 directories, 35 files

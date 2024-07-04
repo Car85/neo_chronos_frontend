@@ -1,7 +1,7 @@
 import preactLogo from '../../assets/boiler_OFF.svg';
 import thermometerIcon from '../../assets/thermomether_chilling.png'; 
 import './style.css';
-import Stats_ from '../stats/stats';
+import Stats_ from '../../components/graphics/stats/stats';
 import { Switch } from '@material-ui/core';
 import { useState } from 'preact/hooks';
 import { ChangeEvent } from 'preact/compat';

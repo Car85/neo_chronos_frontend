@@ -1,7 +1,7 @@
 import preactLogo from '../../assets/chiller_OFF.svg';
 import thermometerIcon from '../../assets/thermomether_boiler.png';
 import './style.css';
-import Stats_ from '../stats/stats';
+import Stats_ from '../../components/graphics/stats/stats';
 import { Switch } from '@material-ui/core';
 import { ChangeEvent, useState } from 'preact/compat';
 
@@ -25,7 +25,7 @@ export default function Summer() {
                                 checked={state.boiler01}
                                 onChange={handleChange}
                                 color="primary"
-                                name="chiller01"
+                                name="boiler01"
                                 inputProps={{ 'aria-label': 'primary checkbox' }}
                             />
                         </div>
