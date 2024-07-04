@@ -6,6 +6,12 @@ img:hover {
     filter: drop-shadow(0 0 2em #227eb3aa);
 }
 
+#img_boiler:hover{
+
+    filter: drop-shadow(0 0 2em #b35a22aa);
+
+}
+
 .home {
     display: flex;
     flex-direction: column;

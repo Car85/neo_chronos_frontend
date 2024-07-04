@@ -25,11 +25,11 @@ const MyDataViz: preact.FunctionalComponent = () => {
 
             svg.append('text')
                 .attr('x', (width + margin.left + margin.right) / 2)
-                .attr('y', margin.top / 2)
+                .attr('y', -25)
                 .attr('text-anchor', 'middle')
                 .style('font-size', '16px')
                 .style('text-decoration', 'underline')
-                .text('Gráfico de Ejemplo');
+                .text('Inlet/Outlet Temperature History');
 
             d3.csv<DataPoint>(
                 '../../../connectedscatter.csv',
