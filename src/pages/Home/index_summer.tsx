@@ -1,5 +1,5 @@
 import preactLogo from '../../assets/boiler_OFF.svg';
-import thermometerIcon from '../../assets/thermomether_chilling.png'; // Add the path to your thermometer icon
+import thermometerIcon from '../../assets/thermomether_chilling.png'; 
 import './style.css';
 import Stats_ from '../stats/stats';
 import { Switch } from '@material-ui/core';
@@ -33,7 +33,7 @@ export default function Winter() {
 							/>
 						</div>
 						<div className={`chiller-image ${state.chiller01 ? 'active' : ''}`}>
-							<img src={preactLogo} alt="Preact logo" height="250" width="250" />
+							<img src={preactLogo} alt="Preact logo" height="175" width="175" />
 							{state.chiller01 && <img src={thermometerIcon} className="thermometer-icon" alt="Thermometer Icon" />}
 						</div>
 					</div>
@@ -48,7 +48,7 @@ export default function Winter() {
 							/>
 						</div>
 						<div className={`chiller-image ${state.chiller02 ? 'active' : ''}`}>
-							<img src={preactLogo} alt="Preact logo" height="250" width="250" />
+							<img src={preactLogo} alt="Preact logo" height="175" width="175" />
 							{state.chiller02 && <img src={thermometerIcon} className="thermometer-icon" alt="Thermometer Icon" />}
 						</div>
 					</div>
@@ -63,7 +63,7 @@ export default function Winter() {
 							/>
 						</div>
 						<div className={`chiller-image ${state.chiller03 ? 'active' : ''}`}>
-							<img src={preactLogo} alt="Preact logo" height="250" width="250" />
+							<img src={preactLogo} alt="Preact logo" height="175" width="175" />
 							{state.chiller03 && <img src={thermometerIcon} className="thermometer-icon" alt="Thermometer Icon" />}
 						</div>
 					</div>
@@ -78,13 +78,13 @@ export default function Winter() {
 							/>
 						</div>
 						<div className={`chiller-image ${state.chiller04 ? 'active' : ''}`}>
-							<img src={preactLogo} alt="Preact logo" height="250" width="250" />
+							<img src={preactLogo} alt="Preact logo" height="175" width="175" />
 							{state.chiller04 && <img src={thermometerIcon} className="thermometer-icon" alt="Thermometer Icon" />}
 						</div>
 					</div>
 				</div>
 			</div>
-			<div>
+			<div class="stats-container">
 				<section>
 					<Stats_ />
 				</section>
