@@ -1,7 +1,6 @@
 import './style.css';
 import { useRef, useState } from "preact/hooks";
-import MenuItem from "@material-ui/core/MenuItem";
-import ListItemText from "@material-ui/core/ListItemText";
+
 
 interface SubMenuProps {
   label: string;

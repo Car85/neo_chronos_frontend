@@ -1,4 +1,4 @@
-import { SubMenu } from './components/Header';
+import { SubMenu } from './components/Header/Header.js';
 import { Router, Route, Link } from "preact-router";
 import Winter from './pages/Home/index_winter.js';
 import Summer from './pages/Home/index_summer.js'; 
