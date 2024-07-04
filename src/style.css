@@ -1,0 +1,84 @@
+:root {
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+    color: #4e4e57;
+    background-color: #57544e;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+}
+
+body,
+html {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#app {
+    display: flex;
+    justify-content: flex-end;
+    height: 100%;
+    width: 100%;
+}
+
+main {
+    flex: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#menu_seasons {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.submenu {
+    display: flex;
+    flex-direction: column;
+    background-color: #333;
+    padding: 0;
+    width: auto;
+}
+
+.submenu-label,
+.submenu-link {
+    box-sizing: border-box;
+    color: #c77211;
+    background-color: #333;
+    text-decoration: none;
+    padding: 3px 8px; /* Reduced padding */
+    cursor: pointer;
+    width: 100%; /* Ensure full width */
+    display: inline-block; /* Ensure inline-block display */
+}
+
+.submenu-link:active,
+.submenu-link:visited,
+.submenu-link:focus {
+    color: #c77211;
+    background-color: #333;
+    text-decoration: none;
+}
+
+@media (max-width: 100vw) {
+    main {
+        margin: 2rem;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        color: #2a3747;
+        background-color: #1a1a1a;
+    }
+}
