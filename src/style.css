@@ -56,10 +56,10 @@ main {
     color: #c77211;
     background-color: #333;
     text-decoration: none;
-    padding: 3px 8px; /* Reduced padding */
+    padding: 3px 8px; 
     cursor: pointer;
-    width: 100%; /* Ensure full width */
-    display: inline-block; /* Ensure inline-block display */
+    width: 100%; 
+    display: inline-block; 
 }
 
 .submenu-link:active,

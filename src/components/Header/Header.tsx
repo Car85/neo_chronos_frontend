@@ -1,7 +1,6 @@
 import './style.css';
 import { useRef, useState } from "preact/hooks";
 
-
 interface SubMenuProps {
   label: string;
   parentOpen: boolean;
@@ -12,13 +11,15 @@ interface SubMenuProps {
 
 export const SubMenu = (props: SubMenuProps): JSX.Element => {
   const [open, setOpen] = useState(false);
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const itemRef = useRef<HTMLDivElement>(null);
 
   const toggleMenu = () => {
     setOpen(!open);
   };
 
-  const handleLinkClick = () => {
+  const handleLinkClick = (index: number) => {
+    setActiveIndex(index);
     setOpen(false);
   };
 
@@ -31,11 +32,15 @@ export const SubMenu = (props: SubMenuProps): JSX.Element => {
         <div className="submenu">
           {Array.isArray(props.children)
             ? props.children.map((child, index) => (
-                <div key={index} onClick={handleLinkClick} className="submenu-link">
+                <div
+                  key={index}
+                  onClick={() => handleLinkClick(index)}
+                  className={`submenu-link ${activeIndex === index ? 'active' : ''}`}
+                >
                   {child}
                 </div>
               ))
-            : <div onClick={handleLinkClick} className="submenu-link">{props.children}</div>}
+            : <div onClick={() => handleLinkClick(0)} className={`submenu-link ${activeIndex === 0 ? 'active' : ''}`}>{props.children}</div>}
         </div>
       )}
     </div>
