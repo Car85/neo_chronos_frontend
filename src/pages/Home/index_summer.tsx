@@ -1,101 +1,55 @@
-import preactLogo from '../../assets/boiler_OFF.svg';
+import preactLogo from '../../assets/chiller_OFF.svg';
 import thermometerIcon from '../../assets/thermomether_chilling.png';
 import './style.css';
 import Stats_ from '../../components/graphics/stats/stats';
-import summertime from '../../assets/summertime.png'
+import summertime from '../../assets/summertime.png';
 import { Switch } from '@material-ui/core';
 import { useState } from 'preact/hooks';
 import { ChangeEvent } from 'preact/compat';
 
 export default function Winter() {
-	const [state, setState] = useState({
-		chiller01: false,
-		chiller02: false,
-		chiller03: false,
-		chiller04: false,
-	});
+    const [state, setState] = useState({
+        chiller01: false,
+        chiller02: false,
+        chiller03: false,
+        chiller04: false,
+    });
 
-	const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-		setState({ ...state, [event.target.name]: event.target.checked });
-	};
+    const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+        setState({ ...state, [event.target.name]: event.target.checked });
+    };
 
-	return (
-		<html>
-			<body>
-				<div>
-					<div class="home">
-						<div class="summer_img">
-							<img src={summertime} alt="Summertime" />
-						</div>
-						<div class="chiller-container">
-							<div class="chiller">
-								<div class="switch-container">
-									<Switch
-										checked={state.chiller01}
-										onChange={handleChange}
-										color="primary"
-										name="chiller01"
-										inputProps={{ 'aria-label': 'primary checkbox' }}
-									/>
-								</div>
-								<div className={`chiller-image ${state.chiller01 ? 'active' : ''}`}>
-									<img src={preactLogo} alt="Preact logo" height="175" width="175" />
-									{state.chiller01 && <img src={thermometerIcon} className="thermometer-icon" alt="Thermometer Icon" />}
-								</div>
-							</div>
-							<div class="chiller">
-								<div class="switch-container">
-									<Switch
-										checked={state.chiller02}
-										onChange={handleChange}
-										color="primary"
-										name="chiller02"
-										inputProps={{ 'aria-label': 'primary checkbox' }}
-									/>
-								</div>
-								<div className={`chiller-image ${state.chiller02 ? 'active' : ''}`}>
-									<img src={preactLogo} alt="Preact logo" height="175" width="175" />
-									{state.chiller02 && <img src={thermometerIcon} className="thermometer-icon" alt="Thermometer Icon" />}
-								</div>
-							</div>
-							<div class="chiller">
-								<div class="switch-container">
-									<Switch
-										checked={state.chiller03}
-										onChange={handleChange}
-										color="primary"
-										name="chiller03"
-										inputProps={{ 'aria-label': 'primary checkbox' }}
-									/>
-								</div>
-								<div className={`chiller-image ${state.chiller03 ? 'active' : ''}`}>
-									<img src={preactLogo} alt="Preact logo" height="175" width="175" />
-									{state.chiller03 && <img src={thermometerIcon} className="thermometer-icon" alt="Thermometer Icon" />}
-								</div>
-							</div>
-							<div class="chiller">
-								<div class="switch-container">
-									<Switch
-										checked={state.chiller04}
-										onChange={handleChange}
-										color="primary"
-										name="chiller04"
-										inputProps={{ 'aria-label': 'primary checkbox' }}
-									/>
-								</div>
-								<div className={`chiller-image ${state.chiller04 ? 'active' : ''}`}>
-									<img src={preactLogo} alt="Preact logo" height="175" width="175" />
-									{state.chiller04 && <img src={thermometerIcon} className="thermometer-icon" alt="Thermometer Icon" />}
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="stats-container">
-						<section>
-							<Stats_ />
-						</section>
-					</div>
-				</div>
-			</body></html>
-	);
+    return (
+        <div className="winter-page">
+            <div className="summer_img">
+                <img  height="70px" width="70px" src={summertime} alt="Summertime" />
+            </div>
+            <div className="home">
+                <div className="chiller-container">
+                    {['chiller01', 'chiller02', 'chiller03', 'chiller04'].map((chiller) => (
+                        <div className="chiller" key={chiller}>
+                            <div className="switch-container">
+                                <Switch
+                                    checked={state[chiller]}
+                                    onChange={handleChange}
+                                    color="primary"
+                                    name={chiller}
+                                    inputProps={{ 'aria-label': 'primary checkbox' }}
+                                />
+                            </div>
+                            <div className={`chiller-image ${state[chiller] ? 'active' : ''}`}>
+                                <img src={preactLogo} alt="Preact logo" />
+                                {state[chiller] && <img src={thermometerIcon} className="thermometer-icon" alt="Thermometer Icon" />}
+                            </div>
+                        </div>
+                    ))}
+                </div>
+                <div className="stats-container">
+                    <section className="graph_container">
+                        <Stats_ />
+                    </section>
+                </div>
+            </div>
+        </div>
+    );
 }

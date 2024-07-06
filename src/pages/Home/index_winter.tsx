@@ -17,32 +17,38 @@ export default function Summer() {
     };
 
     return (
-        <div className="summer-page">
-            <div className="winter_img">
-                <img src={wintertime} alt="Wintertime" />
-            </div>
-            <div className="home">                  
-                <div className="boiler">
-                    <div className="switch-container-boiler">
-                        <Switch
-                            checked={state.boiler01}
-                            onChange={handleChange}
-                            color="primary"
-                            name="boiler01"
-                            inputProps={{ 'aria-label': 'primary checkbox' }}
-                        />
-                    </div>
-                    <div className={`boiler-image ${state.boiler01 ? 'active' : ''}`}>
-                        <img id="img_boiler" src={preactLogo} alt="Preact logo" height="280" width="280" />
-                        {state.boiler01 && <img src={thermometerIcon} className="thermometer-icon" alt="Thermometer Icon" />}
-                    </div>
-                </div>
+        <html>
+            <body>
                 <div>
-                    <section>
-                        <Stats_ />
-                    </section>
+                    <div class="home">
+                        <div class="boiler_container">
+                            <div className="winter_img">
+                                <img height="70px" width="70px" src={wintertime} alt="Wintertime" />
+                            </div>
+                            <div className="boiler">
+                                <div className="switch-container-boiler">
+                                    <Switch
+                                        checked={state.boiler01}
+                                        onChange={handleChange}
+                                        color="primary"
+                                        name="boiler01"
+                                        inputProps={{ 'aria-label': 'primary checkbox' }}
+                                    />
+                                </div>
+                                <div className={`boiler-image ${state.boiler01 ? 'active' : ''}`}>
+                                    <img id="img_boiler" src={preactLogo} alt="Preact logo" height="200%" width="200%" />
+                                    {state.boiler01 && <img src={thermometerIcon} className="thermometer-icon" alt="Thermometer Icon" />}
+                                </div>
+                            </div>
+                        </div>
+                    </div>  
+                    <div>
+                        <section>
+                            <Stats_ />
+                        </section>
+                    </div>
                 </div>
-            </div>
-        </div>
+            </body>
+        </html>
     );
 }
