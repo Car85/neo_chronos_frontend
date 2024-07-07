@@ -1,5 +1,8 @@
 import { h } from 'preact';
 import { useState, useEffect } from 'preact/hooks';
+import io from 'socket.io-client';
+
+const socket = io('http://localhost:8000'); 
 
 interface UserSettingsFormProps {
   baselineSetpoint: number;
@@ -49,6 +52,7 @@ const UserSettingsForm: preact.FunctionalComponent<UserSettingsFormProps> = (pro
   const handleSubmit = (e: Event) => {
     e.preventDefault();
     props.onUpdate(formData);
+    socket.emit("update_settings", formData); 
   };
 
   return (
