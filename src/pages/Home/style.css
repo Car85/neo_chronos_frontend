@@ -118,8 +118,8 @@ img:hover {
         height: 150px;
     }
     .thermometer-icon {
-        width: 18px;
-        height: 18px;
+        width: 40px;
+        height: 40px;
     }
 }
 
@@ -133,8 +133,8 @@ img:hover {
         height: 100px;
     }
     .thermometer-icon {
-        width: 15px;
-        height: 15px;
+        width: 35px;
+        height: 35px;
     }
 }
 
@@ -148,8 +148,8 @@ img:hover {
         height: 80px;
     }
     .thermometer-icon {
-        width: 10px;
-        height: 10px;
+        width: 25px;
+        height: 25px;
     }
 }
 
@@ -163,7 +163,7 @@ img:hover {
         height: 60px;
     }
     .thermometer-icon {
-        width: 8px;
-        height: 8px;
+        width: 18px;
+        height: 18px;
     }
 }

@@ -22,8 +22,8 @@ html, body {
 }
 
 #my_dataviz {
-  width: 70vmin;
-  height: 60vmin%;
+  width: 65vmin;
+  height: 40vmin;
 }
 
 #my_dataviz svg {

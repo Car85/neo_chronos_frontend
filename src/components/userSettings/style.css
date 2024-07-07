@@ -9,6 +9,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    color: black;
+    font-weight: bold;
   }
   
   .user-settings-form {
@@ -68,4 +70,37 @@
         right: 2%;
     }
 }
+
+
+@media (min-width: 1500px) {
+    .user-settings-form {
+      width: 60%; /* Ajustar el ancho del formulario */
+      height: auto;
+      padding: 20px;
+      margin-left: 20%; /* Ajustar el margen izquierdo */
+      margin-right: 20%; /* Ajustar el margen derecho */
+      background-color: rgba(87, 84, 78, 0.8);
+    }
   
+    .user-settings-form div {
+      flex-direction: row; /* Distribuir elementos en una fila */
+      align-items: center;
+      justify-content: space-between; /* Espacio entre elementos */
+      margin-bottom: 10px; /* Espacio entre líneas del formulario */
+    }
+  
+    .user-settings-form label,
+    .user-settings-form span {
+      width: 40%; /* Ajustar el ancho de las etiquetas */
+      margin-bottom: 0;
+    }
+  
+    .user-settings-form input {
+      width: 20%; /* Ajustar el ancho de los inputs a 20% */
+      margin-left: 5px; /* Espacio entre etiqueta e input */
+    }
+  
+    .user-settings-form button {
+      align-self: center;
+    }
+}
