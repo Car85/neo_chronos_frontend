@@ -52,7 +52,7 @@ const UserSettingsForm: preact.FunctionalComponent<UserSettingsFormProps> = (pro
   const handleSubmit = (e: Event) => {
     e.preventDefault();
     props.onUpdate(formData);
-    socket.emit("update_settings", formData); 
+    socket.emit("add_settings", formData); 
   };
 
   return (
