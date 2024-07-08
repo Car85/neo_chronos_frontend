@@ -1,46 +1,43 @@
 import { h } from 'preact';
 import { useState, useEffect } from 'preact/hooks';
-import io from 'socket.io-client';
-
-const socket = io('http://localhost:8000'); 
 
 interface UserSettingsFormProps {
   baselineSetpoint: number;
   thaSetpoint: number;
   effectiveSetpoint: number;
   tolerance: number;
-  minSetpoint: number;
-  maxSetpoint: number;
-  offsetSummer: number;
-  offsetWinter: number;
-  deltaTemp: number;
-  lockoutTime: number;
-  cascadeTime: number;
+  setpoint_min: number;
+  setpoint_max: number;
+  setpoint_offset_summer: number;
+  setpoint_offset_winter: number;
+  mode_change_delta_temp: number;
+  mode_switch_lockout_time: number;
+  cascade_time: number;
   onUpdate: (updatedSettings: any) => void;
 }
 
 const UserSettingsForm: preact.FunctionalComponent<UserSettingsFormProps> = (props) => {
   const [formData, setFormData] = useState({
     tolerance: props.tolerance,
-    minSetpoint: props.minSetpoint,
-    maxSetpoint: props.maxSetpoint,
-    offsetSummer: props.offsetSummer,
-    offsetWinter: props.offsetWinter,
-    deltaTemp: props.deltaTemp,
-    lockoutTime: props.lockoutTime,
-    cascadeTime: props.cascadeTime,
+    setpoint_min: props.setpoint_min,
+    setpoint_max: props.setpoint_max,
+    setpoint_offset_summer: props.setpoint_offset_summer,
+    setpoint_offset_winter: props.setpoint_offset_winter,
+    mode_change_delta_temp: props.mode_change_delta_temp,
+    mode_switch_lockout_time: props.mode_switch_lockout_time,
+    cascade_time: props.cascade_time,
   });
 
   useEffect(() => {
     setFormData({
       tolerance: props.tolerance,
-      minSetpoint: props.minSetpoint,
-      maxSetpoint: props.maxSetpoint,
-      offsetSummer: props.offsetSummer,
-      offsetWinter: props.offsetWinter,
-      deltaTemp: props.deltaTemp,
-      lockoutTime: props.lockoutTime,
-      cascadeTime: props.cascadeTime,
+      setpoint_min: props.setpoint_min,
+      setpoint_max: props.setpoint_max,
+      setpoint_offset_summer: props.setpoint_offset_summer,
+      setpoint_offset_winter: props.setpoint_offset_winter,
+      mode_change_delta_temp: props.mode_change_delta_temp,
+      mode_switch_lockout_time: props.mode_switch_lockout_time,
+      cascade_time: props.cascade_time,
     });
   }, [props]);
 
@@ -49,10 +46,32 @@ const UserSettingsForm: preact.FunctionalComponent<UserSettingsFormProps> = (pro
     setFormData({ ...formData, [target.name]: target.value });
   };
 
-  const handleSubmit = (e: Event) => {
+  const handleSubmit = async (e: Event) => {
     e.preventDefault();
     props.onUpdate(formData);
-    socket.emit("add_settings", formData); 
+
+    // Log the formData to check the emitted data
+    console.log('Submitting form with data:', formData);
+
+    // Perform a POST request to localhost:8000/add_settings
+    try {
+        const response = await fetch('http://localhost:5000/add_settings', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        });
+
+        if (!response.ok) {
+            throw new Error(`Error: ${response.statusText}`);
+        }
+
+        const data = await response.json();
+        console.log('Server response:', data);
+    } catch (error) {
+        console.error('Error while posting data:', error);
+    }
   };
 
   return (
@@ -77,31 +96,31 @@ const UserSettingsForm: preact.FunctionalComponent<UserSettingsFormProps> = (pro
         </div>
         <div>
           <label>Min. Setpoint:</label>
-          <input type="number" name="minSetpoint" value={formData.minSetpoint} onChange={handleChange} />
+          <input type="number" name="setpoint_min" value={formData.setpoint_min} onChange={handleChange} />
         </div>
         <div>
           <label>Max. Setpoint:</label>
-          <input type="number" name="maxSetpoint" value={formData.maxSetpoint} onChange={handleChange} />
+          <input type="number" name="setpoint_max" value={formData.setpoint_max} onChange={handleChange} />
         </div>
         <div>
           <label>Setpoint Offset Summer:</label>
-          <input type="number" name="offsetSummer" value={formData.offsetSummer} onChange={handleChange} />
+          <input type="number" name="setpoint_offset_summer" value={formData.setpoint_offset_summer} onChange={handleChange} />
         </div>
         <div>
           <label>Setpoint Offset Winter:</label>
-          <input type="number" name="offsetWinter" value={formData.offsetWinter} onChange={handleChange} />
+          <input type="number" name="setpoint_offset_winter" value={formData.setpoint_offset_winter} onChange={handleChange} />
         </div>
         <div>
           <label>Mode Change Delta Temp:</label>
-          <input type="number" name="deltaTemp" value={formData.deltaTemp} onChange={handleChange} />
+          <input type="number" name="mode_change_delta_temp" value={formData.mode_change_delta_temp} onChange={handleChange} />
         </div>
         <div>
           <label>Mode Switch Lockout Time:</label>
-          <input type="number" name="lockoutTime" value={formData.lockoutTime} onChange={handleChange} />
+          <input type="number" name="mode_switch_lockout_time" value={formData.mode_switch_lockout_time} onChange={handleChange} />
         </div>
         <div>
           <label>Cascade Time:</label>
-          <input type="number" name="cascadeTime" value={formData.cascadeTime} onChange={handleChange} />
+          <input type="number" name="cascade_time" value={formData.cascade_time} onChange={handleChange} />
         </div>
         <div>
           <button type="submit">Update</button>
