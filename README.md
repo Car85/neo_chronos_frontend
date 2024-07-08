@@ -1,5 +1,9 @@
 # Neo Chronos Frontend
 
+Chronos is a boiling/cooling water system working on Raspberry Pi. Chronos has a web interface to control the system and tracking for the state. 
+
+https://bitbucket.org/quarck/chronos
+
 Modernized frontend of the legacy Chronos application using Preact and Vite.
 
 ## Table of Contents
